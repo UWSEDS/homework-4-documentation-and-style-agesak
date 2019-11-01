@@ -60,9 +60,9 @@ class TestDataframe():
         """
         for col in self.type_dict:
             expected = self.df[f"{col}"].dtype == self.type_dict[f"{col}"]
-        if not expected:
-            warnings.warn("Column {} is not of the expected type. "
-                          "It is {}".format(col, self.df[col].dtype))
+            if not expected:
+                warnings.warn("Column {} is not of the expected type. "
+                              "It is {}".format(col, self.df[col].dtype))
 
     def test_nans(self):
         """

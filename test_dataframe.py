@@ -18,12 +18,7 @@ HW2 = importlib.import_module(
 class TestDataframe():
     """
     A class to test various attributes of a dataframe
-
     ...
-    Attributes
-    -----------
-    url : str
-        a url that points to a csv file
 
     Methods
     -----------
@@ -31,16 +26,22 @@ class TestDataframe():
                     values of the corect type.
     test_nans(): Checks for NaN values
     test_row(): Verify that the dataframe has at least one row.
+
     """
 
-    def __init__(self, url):
+    def __init__(self):
         """
-        Parameters
-        ----------
-        url : str
-              a url that points to a csv file
+        Sets the attributes of the class
+
+        Attributes
+        -----------------
+        df : pd.Dataframe
+            pandas dataframe read in from a csv
+        type_dict: dictionary
+                  dictionary that maps df column to the expected type
         """
-        self.df = HW2.read_in_data(url)
+        self.df = HW2.read_in_data(
+            "https://data.seattle.gov/api/views/tw7j-dfaw/rows.csv?accessType=DOWNLOAD")
         self.type_dict = {"trip_id": "int64",
                           "starttime": "object",
                           "stoptime": "object",
